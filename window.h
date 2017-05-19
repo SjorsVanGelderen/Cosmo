@@ -1,3 +1,11 @@
+/*
+  Copyright 2017, Sjors van Gelderen
+
+  TODO:
+  - Reconsider responsibility
+  - Make singleton
+*/
+
 #ifndef WINDOW_H
 #define WINDOW_H
 

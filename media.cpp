@@ -1,3 +1,7 @@
+/*
+  Copyright 2017, Sjors van Gelderen
+*/
+
 #include "media.h"
 
 std::map<std::string, SDL_Texture*> Media::textures;

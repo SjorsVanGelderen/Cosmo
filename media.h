@@ -1,3 +1,10 @@
+/*
+  Copyright 2017, Sjors van Gelderen
+
+  TODO:
+  - Make singleton
+*/
+
 #ifndef MEDIA_H
 #define MEDIA_H
 

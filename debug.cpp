@@ -1,3 +1,7 @@
+/*
+  Copyright 2017, Sjors van Gelderen
+*/
+
 #include "debug.h"
 
 void Debug::Log(LogLevel _level, std::string _message)

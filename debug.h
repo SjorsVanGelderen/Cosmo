@@ -1,3 +1,7 @@
+/*
+  Copyright 2017, Sjors van Gelderen
+*/
+
 #ifndef DEBUG_H
 #define DEBUG_H
 

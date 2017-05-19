@@ -1,3 +1,10 @@
+/*
+  Copyright 2017, Sjors van Gelderen
+
+  TODO:
+  - Use dstrect with position vector
+*/
+
 #include "sprite.h"
 
 Sprite::Sprite(std::string filename)

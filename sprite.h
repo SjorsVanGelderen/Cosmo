@@ -1,3 +1,7 @@
+/*
+  Copyright 2017, Sjors van Gelderen
+*/
+
 #ifndef SPRITE_H
 #define SPRITE_H
 
@@ -5,6 +9,7 @@
 #include <SDL2/SDL.h>
 #include "debug.h"
 #include "media.h"
+#include "math.h"
 
 class Sprite
 {
@@ -15,6 +20,7 @@ class Sprite
   
  private:
   SDL_Texture* texture;
+  Vector2 position;
 };
 
 #endif

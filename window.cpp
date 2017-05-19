@@ -1,3 +1,7 @@
+/*
+  Copyright 2017, Sjors van Gelderen
+*/
+
 #include "window.h"
 
 SDL_Window* Window::window;
