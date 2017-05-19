@@ -1,0 +1,17 @@
+/*
+  Copyright 2017, Sjors van Gelderen
+*/
+
+#ifndef MATH_H
+#define MATH_H
+
+class Vector2
+{
+ public:
+  
+
+ private:
+  
+};
+
+#endif
