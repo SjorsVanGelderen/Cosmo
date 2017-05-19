@@ -1,0 +1,10 @@
+#include "window.h"
+
+int main()
+{
+  Window::Init();
+  Media::Init(Window::GetRenderer());
+  Window::Terminate();
+  
+  return 0;
+}
