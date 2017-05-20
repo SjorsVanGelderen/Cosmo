@@ -1,6 +1,0 @@
-#include "debug.h"
-
-static void Debug::Log(std::string _message)
-{
-  std::cerr << _message << std::endl;
-}
