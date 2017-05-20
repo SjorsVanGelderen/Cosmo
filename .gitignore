@@ -79,3 +79,11 @@ flycheck_*.el
 
 # built file
 run
+
+# assets
+.bmp
+.png
+.jpg
+.jpeg
+.gif
+.tiff
