@@ -2,15 +2,17 @@
    Example of using the F# Cosmo bindings
 *)
 
-open Cosmo
+module Program
 
-type CosmoData =
-    {
-        images: Image
-        lines: Line
-        circles: Circle
-    }
+open System.Runtime.InteropServices
 
+[<DllImport("Cosmo", CallingConvention = CallingConvention.Cdecl)>]
+extern int MeaningOfLife();
+
+[<DllImport("Cosmo", CallingConvention = CallingConvention.Cdecl)>]
+extern int StringLength(string message);
+
+[<EntryPoint>]
 let main args =
-    
+    printfn "%A, %A" <| MeaningOfLife () <| StringLength "Papua"
     0

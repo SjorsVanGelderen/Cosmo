@@ -9,18 +9,18 @@
 
 Sprite::Sprite(std::string filename)
 {
-  texture = Media::GetImage(filename);
+    texture = Media::GetImage(filename);
 }
 
 Sprite::~Sprite()
 {
-  texture = nullptr;
+    texture = nullptr;
 }
 
 void Sprite::Draw(SDL_Renderer* _renderer)
 {
-  if(texture != nullptr)
+    if(texture != nullptr)
     {
-      SDL_RenderCopy(_renderer, texture, NULL, NULL);
+	SDL_RenderCopy(_renderer, texture, NULL, NULL);
     }
 }

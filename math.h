@@ -12,13 +12,16 @@
 
 class Vector2
 {
- public:
-  float GetX();
-  float GetY();
+public:
+    Vector2(float _x, float _y);
+    float GetX();
+    float GetY();
+    void SetX(float _x);
+    void SetY(float _y);
 
- private:
-  float x;
-  float y;
+private:
+    float x;
+    float y;
 };
 
 #endif

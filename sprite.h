@@ -9,18 +9,18 @@
 #include <SDL2/SDL.h>
 #include "debug.h"
 #include "media.h"
-#include "math.h"
+//#include "math.h"
 
 class Sprite
 {
- public:
-  Sprite(std::string filename);
-  ~Sprite();
-  void Draw(SDL_Renderer* renderer);
+public:
+    Sprite(std::string filename);
+    ~Sprite();
+    void Draw(SDL_Renderer* renderer);
   
- private:
-  SDL_Texture* texture;
-  Vector2 position;
+private:
+    SDL_Texture* texture;
+    //Vector2 position;
 };
 
 #endif

@@ -2,21 +2,18 @@
   Copyright 2017, Sjors van Gelderen
 */
 
-#include "window.h"
+#include "application.h"
 
 int main()
 {
-  // Set up the application
-  Window::Init();
-  Media::Init(Window::GetRenderer());
-  Sound::Init();
+    // Set up the application
+    Application::Init();
 
-  // Perform the main application loop
-  Window::Loop();
+    // Perform the main application loop
+    Application::Loop();
 
-  // Terminate the application
-  Sound::Terminate();
-  Window::Terminate();
+    // Terminate the application
+    Application::Terminate();
   
-  return 0;
+    return 0;
 }
