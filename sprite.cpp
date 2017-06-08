@@ -19,8 +19,5 @@ Sprite::~Sprite()
 
 void Sprite::Draw(SDL_Renderer* _renderer)
 {
-    if(texture != nullptr)
-    {
-	SDL_RenderCopy(_renderer, texture, NULL, NULL);
-    }
+    SDL_RenderCopy(_renderer, texture, NULL, NULL);
 }

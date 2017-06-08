@@ -3,9 +3,9 @@
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <RestoreSuccess Condition=" '$(RestoreSuccess)' == '' ">True</RestoreSuccess>
     <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
-    <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">/Users/sjors/Projects/Cosmo/FSharp/obj/project.assets.json</ProjectAssetsFile>
-    <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">/Users/sjors/.nuget/packages/</NuGetPackageRoot>
-    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">/Users/sjors/.nuget/packages/</NuGetPackageFolders>
+    <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">/Users/cmi/Projects/Job/Cosmo/FSharp/obj/project.assets.json</ProjectAssetsFile>
+    <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">/Users/cmi/.nuget/packages/</NuGetPackageRoot>
+    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">/Users/cmi/.nuget/packages/</NuGetPackageFolders>
     <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
     <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">4.0.0</NuGetToolVersion>
   </PropertyGroup>
@@ -14,7 +14,7 @@
   </PropertyGroup>
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <Import Project="$(NuGetPackageRoot)microsoft.diasymreader.native/1.4.1/build/Microsoft.DiaSymReader.Native.props" Condition="Exists('$(NuGetPackageRoot)microsoft.diasymreader.native/1.4.1/build/Microsoft.DiaSymReader.Native.props')" />
-    <Import Project="$(NuGetPackageRoot)fsharp.compiler.tools/4.1.15/build/FSharp.Compiler.Tools.props" Condition="Exists('$(NuGetPackageRoot)fsharp.compiler.tools/4.1.15/build/FSharp.Compiler.Tools.props')" />
-    <Import Project="$(NuGetPackageRoot)fsharp.net.sdk/1.0.4/build/FSharp.NET.Sdk.props" Condition="Exists('$(NuGetPackageRoot)fsharp.net.sdk/1.0.4/build/FSharp.NET.Sdk.props')" />
+    <Import Project="$(NuGetPackageRoot)fsharp.compiler.tools/4.1.17/build/FSharp.Compiler.Tools.props" Condition="Exists('$(NuGetPackageRoot)fsharp.compiler.tools/4.1.17/build/FSharp.Compiler.Tools.props')" />
+    <Import Project="$(NuGetPackageRoot)fsharp.net.sdk/1.0.5/build/FSharp.NET.Sdk.props" Condition="Exists('$(NuGetPackageRoot)fsharp.net.sdk/1.0.5/build/FSharp.NET.Sdk.props')" />
   </ImportGroup>
 </Project>

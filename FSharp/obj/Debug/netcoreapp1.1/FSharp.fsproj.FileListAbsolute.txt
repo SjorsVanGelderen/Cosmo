@@ -5,3 +5,10 @@
 /Users/sjors/Projects/Cosmo/FSharp/bin/Debug/netcoreapp1.1/FSharp.pdb
 /Users/sjors/Projects/Cosmo/FSharp/obj/Debug/netcoreapp1.1/FSharp.dll
 /Users/sjors/Projects/Cosmo/FSharp/obj/Debug/netcoreapp1.1/FSharp.pdb
+/Users/cmi/Projects/Job/Cosmo/FSharp/bin/Debug/netcoreapp1.1/FSharp.deps.json
+/Users/cmi/Projects/Job/Cosmo/FSharp/bin/Debug/netcoreapp1.1/FSharp.runtimeconfig.json
+/Users/cmi/Projects/Job/Cosmo/FSharp/bin/Debug/netcoreapp1.1/FSharp.runtimeconfig.dev.json
+/Users/cmi/Projects/Job/Cosmo/FSharp/obj/Debug/netcoreapp1.1/FSharp.pdb
+/Users/cmi/Projects/Job/Cosmo/FSharp/bin/Debug/netcoreapp1.1/FSharp.dll
+/Users/cmi/Projects/Job/Cosmo/FSharp/bin/Debug/netcoreapp1.1/FSharp.pdb
+/Users/cmi/Projects/Job/Cosmo/FSharp/obj/Debug/netcoreapp1.1/FSharp.dll

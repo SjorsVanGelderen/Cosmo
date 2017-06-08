@@ -6,17 +6,50 @@
 #define BINDINGS_H
 
 #include <string.h>
+#include "application.h"
+#include "drawing.h"
 
 extern "C"
 {
-    int __cdecl MeaningOfLife()
+    int __cdecl Init()
     {
-	return 42;
+	return Application::Init();
+    }
+
+    void __cdecl Terminate()
+    {
+	Application::Terminate();
     }
     
-    int __cdecl StringLength(char* _message)
+    void __cdecl DrawLine(double x0, double y0, double x1, double y1)
     {
-	return strlen(_message);
+	Drawing::DrawLine(x0, y0, x1, y1);
+    }
+
+    void __cdecl DrawRectangle(double x, double y, double w, double h)
+    {
+	Drawing::DrawRectangle(x, y, w, h);
+    }
+  
+    void __cdecl DrawCircle(double x, double y, double r)
+    {
+	
+    }
+  
+    void __cdecl DrawText(char* text, double x, double y, double size)
+    {
+      
+    }
+  
+    void __cdecl DrawImage(char* filename, double x, double y)
+    {
+    
+    }
+    
+    int __cdecl Update()
+    {
+	Drawing::DrawAll();
+	return Application::PollEvents();
     }
 }
 

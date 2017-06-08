@@ -6,3 +6,11 @@
 /Users/sjors/Projects/Cosmo/CSharp/bin/Debug/netcoreapp1.1/CSharp.pdb
 /Users/sjors/Projects/Cosmo/CSharp/obj/Debug/netcoreapp1.1/CSharp.dll
 /Users/sjors/Projects/Cosmo/CSharp/obj/Debug/netcoreapp1.1/CSharp.pdb
+/Users/cmi/Projects/Job/Cosmo/CSharp/bin/Debug/netcoreapp1.1/CSharp.deps.json
+/Users/cmi/Projects/Job/Cosmo/CSharp/bin/Debug/netcoreapp1.1/CSharp.runtimeconfig.json
+/Users/cmi/Projects/Job/Cosmo/CSharp/bin/Debug/netcoreapp1.1/CSharp.runtimeconfig.dev.json
+/Users/cmi/Projects/Job/Cosmo/CSharp/obj/Debug/netcoreapp1.1/CSharp.AssemblyInfo.cs
+/Users/cmi/Projects/Job/Cosmo/CSharp/obj/Debug/netcoreapp1.1/CSharp.pdb
+/Users/cmi/Projects/Job/Cosmo/CSharp/bin/Debug/netcoreapp1.1/CSharp.dll
+/Users/cmi/Projects/Job/Cosmo/CSharp/bin/Debug/netcoreapp1.1/CSharp.pdb
+/Users/cmi/Projects/Job/Cosmo/CSharp/obj/Debug/netcoreapp1.1/CSharp.dll

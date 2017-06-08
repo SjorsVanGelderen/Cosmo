@@ -1,7 +1,7 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "/Users/sjors/.nuget/packages"
+      "/Users/cmi/.nuget/packages"
     ]
   }
 }

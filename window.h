@@ -8,19 +8,23 @@
 #ifndef WINDOW_H
 #define WINDOW_H
 
+#include <memory>
 #include <SDL2/SDL.h>
-#include "debug.h"
 #include "media.h"
+
+#ifdef DEBUG
+#include "debug.h"
+#endif
 
 class Window
 {
 public:
-    static int Init(std::string _title, int _width, int _height);
-    static int Terminate();
-    static SDL_Window* GetWindow();
+static int Init(std::string _title, int _width, int _height);
+static int Terminate();
+static std::shared_ptr<SDL_Window> GetWindow();
 
 private:
-    static SDL_Window* window;
+static std::shared_ptr<SDL_Window> window;
 };
 
 #endif

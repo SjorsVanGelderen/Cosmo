@@ -7,40 +7,39 @@
 bool Application::exit;
 SDL_Event Application::event;
 const Window Application::window;
-const Media Application::media;
-SDL_Renderer* Application::renderer;
-std::vector<Sprite*> Application::sprites;
+//const Media Application::media;
 
-int Application::Init(std::string _title, int _width, int _height)
+int Application::Init(std::string title, int width, int height)
 {
     // Set up SDL
     if(SDL_Init(SDL_INIT_VIDEO) < 0)
     {
+#ifdef DEBUG
 	Debug::Log(ERROR, "SDL error: " + std::string(SDL_GetError()));
+#endif
+      
 	return -1;
     }
-
-    // Initialize the window
-    if(Window::Init(_title, _width, _height) < 0)
-    {
-	return -1;
-    }
-
-    // Create a renderer
-    renderer = SDL_CreateRenderer(Window::GetWindow(), -1, SDL_RENDERER_ACCELERATED);
-    if(renderer == nullptr)
-    {
-	Debug::Log(ERROR, "SDL error: " + std::string(SDL_GetError()));
-	return -1;
-    }
-
-    SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
-
-    // Initialize media subsystem
-    Media::Init(renderer);
     
-    // Load an image to draw
-    sprites.push_back(new Sprite("image.png"));
+    // Initialize the window
+    if(Window::Init(title, width, height) < 0)
+    {
+	return -1;
+    }
+    
+    // Initialize the drawing system
+    if(Drawing::Init(Window::GetWindow()) < 0)
+    {
+	return -1;
+    }
+
+    /*
+    // Initialize media subsystem
+    if(Media::Init(Drawing::GetRenderer()) < 0)
+    {
+	return -1;
+    }
+    */
     
     return 0;
 }
@@ -49,10 +48,11 @@ void Application::Terminate()
 {
     // Terminate subsystems
     Window::Terminate();
-    Media::Terminate();
+    Drawing::Terminate();
+    //Media::Terminate();
 }
 
-void Application::PollEvents()
+int Application::PollEvents()
 {
     // Flush the SDL event queue
     while(SDL_PollEvent(&event))
@@ -69,6 +69,13 @@ void Application::PollEvents()
 	    break;
 	}
     }
+
+    if(exit)
+    {
+	return 1;
+    }
+
+    return 0;
 }
 
 int Application::Loop()
@@ -78,23 +85,9 @@ int Application::Loop()
 	// Poll for SDL events
 	PollEvents();
 
-	// Clear the screen
-	SDL_RenderClear(renderer);
-	
-	// Render all sprites
-	for(const auto &sprite : sprites)
-	{
-	    sprite->Draw(renderer);
-	}
-
-	// Flip the screen
-	SDL_RenderPresent(renderer);
+	// Draw everything
+	Drawing::DrawAll();
     }
     
     return 0;
-}
-
-SDL_Renderer* Application::GetRenderer()
-{
-    return renderer;
 }

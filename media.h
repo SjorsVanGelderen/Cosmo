@@ -8,24 +8,28 @@
 #ifndef MEDIA_H
 #define MEDIA_H
 
-#include <map>
+#include <memory>
 #include <vector>
+#include <map>
+#include <string>
 #include <SDL2/SDL.h>
 #include <SDL2_image/SDL_image.h>
+
+#ifdef DEBUG
 #include "debug.h"
+#endif
 
 class Media
 {
  public:
-  static void Init(SDL_Renderer* _renderer);
+static int Init();
   static void Terminate();
-  static SDL_Texture* GetImage(std::string _filename);
+static std::shared_ptr<SDL_Texture> GetImage(std::string _filename);
 
  private:
-  static SDL_Texture* LoadImage(std::string _filename);
+static std::shared_ptr<SDL_Texture> LoadImage(std::string _filename);
   
-  static std::map<std::string, SDL_Texture*> textures;
-  static SDL_Renderer* renderer;
+static std::map<std::string, std::shared_ptr<SDL_Texture>> textures;
 };
 
 #endif

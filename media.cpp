@@ -4,78 +4,99 @@
 
 #include "media.h"
 
-std::map<std::string, SDL_Texture*> Media::textures;
-SDL_Renderer* Media::renderer = nullptr;
+std::map<std::string, std::shared_ptr<SDL_Texture>> Media::textures;
 
-void Media::Init(SDL_Renderer* _renderer)
+int Media::Init()
 {
-  renderer = _renderer;
-
-  if(!(IMG_Init(IMG_INIT_PNG) & IMG_INIT_PNG))
+    /*
+    if(!(IMG_Init(IMG_INIT_PNG) & IMG_INIT_PNG))
     {
-      Debug::Log(ERROR,
-		 "Failed to initialize IMG. IMG error: "
-		 + std::string(IMG_GetError()));
+#ifdef DEBUG	
+	Debug::Log(ERROR,
+		   "Failed to initialize IMG. IMG error: "
+		   + std::string(IMG_GetError()));
+#endif
+
+	return -1;
     }
+    */
+
+    return 0;
 }
 
-SDL_Texture* Media::LoadImage(std::string _filename)
+std::shared_ptr<SDL_Texture> Media::LoadImage(std::string _filename)
 {
-  // Load an image into a surface
-  SDL_Surface* surface = IMG_Load(_filename.c_str());
-  if(surface == nullptr)
+    /*
+    // Load an image into a surface
+    std::shared_ptr<SDL_Surface> surface = std::make_shared(IMG_Load(_filename.c_str()));
+    if(!surface)
     {
-      Debug::Log(ERROR,
-		 "Failed to load image "
-		 + _filename
-		 + ". SDL error: "
-		 + std::string(SDL_GetError()));
-      return nullptr;
+#ifdef DEBUG
+	Debug::Log(ERROR,
+		   "Failed to load image "
+		   + _filename
+		   + ". SDL error: "
+		   + std::string(SDL_GetError()));
+#endif
+	
+	return nullptr;
     }
 
-  // Generate a texture from the surface
-  SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
-  if(texture == nullptr)
+    // Generate a texture from the surface
+    std::shared_ptr<SDL_Texture> texture = SDL_CreateTextureFromSurface(renderer, surface);
+    if(texture == nullptr)
     {
-      Debug::Log(ERROR,
-		 "Failed to create texture "
-		 + _filename
-		 + ". SDL error: "
-		 + std::string(SDL_GetError()));
-      return nullptr;
+#ifdef DEBUG
+	Debug::Log(ERROR,
+		   "Failed to create texture "
+		   + _filename
+		   + ". SDL error: "
+		   + std::string(SDL_GetError()));
+#endif
+	
+	return nullptr;
     }
 
-  // Free the surface
-  SDL_FreeSurface(surface);
+    // Free the surface
+    SDL_FreeSurface(surface);
 
-  // Store the texture in the map
-  textures.insert(std::pair<std::string, SDL_Texture*>(_filename, texture));
+    // Store the texture in the map
+    textures.insert(std::pair<std::string, SDL_Texture*>(_filename, texture));
 
-  return texture;
+    return texture;
+    */
+
+    return nullptr;
 }
 
-SDL_Texture* Media::GetImage(std::string _filename)
+std::shared_ptr<SDL_Texture> Media::GetImage(std::string _filename)
 {
-  // Return surface from map
-  for(const auto &entry : textures)
+    /*
+    // Return surface from map
+    for(const auto &entry : textures)
     {
-      if(entry.first == _filename)
+	if(entry.first == _filename)
 	{
-	  return entry.second;
+	    return entry.second;
 	}
     }
 
-  // Load if it doesn't exist
-  return LoadImage(_filename);
+    // Load if it doesn't exist
+    return LoadImage(_filename);
+    */
+
+    return nullptr;
 }
 
 void Media::Terminate()
 {
-  // Destroy all textures and clear the map
-  for(const auto &entry : textures)
+    /*
+    // Destroy all textures and clear the map
+    for(const auto &entry : textures)
     {
-      SDL_DestroyTexture(entry.second);
+	SDL_DestroyTexture(entry.second);
     }
 
-  textures.clear();
+    textures.clear();
+    */
 }

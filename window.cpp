@@ -4,20 +4,29 @@
 
 #include "window.h"
 
-SDL_Window* Window::window;
+std::shared_ptr<SDL_Window> Window::window;
 
-int Window::Init(std::string _title, int _width, int _height)
+int Window::Init(std::string title, int width, int height)
 {
     // Create a window
-    window = SDL_CreateWindow(_title.c_str(),
-			      SDL_WINDOWPOS_UNDEFINED,
-			      SDL_WINDOWPOS_UNDEFINED,
-			      _width,
-			      _height,
-			      SDL_WINDOW_SHOWN);
-    if(window == nullptr)
+    window.reset(
+	SDL_CreateWindow(
+	    title.c_str(),
+	    SDL_WINDOWPOS_UNDEFINED,
+	    SDL_WINDOWPOS_UNDEFINED,
+	    width,
+	    height,
+	    SDL_WINDOW_SHOWN
+	    ),
+	SDL_DestroyWindow
+	);
+    
+    if(!window)
     {
+#ifdef DEBUG
 	Debug::Log(ERROR, "SDL error: " + std::string(SDL_GetError()));
+#endif
+	
 	return -1;
     }
   
@@ -26,17 +35,13 @@ int Window::Init(std::string _title, int _width, int _height)
 
 int Window::Terminate()
 {
-    // Destroy the window
-    SDL_DestroyWindow(window);
-    window = nullptr;
-
     // Quit SDL
     SDL_Quit();
 
     return 0;
 }
 
-SDL_Window* Window::GetWindow()
+std::shared_ptr<SDL_Window> Window::GetWindow()
 {
     return window;
 }
