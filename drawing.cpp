@@ -33,7 +33,7 @@ int Drawing::Init(std::shared_ptr<SDL_Window> window)
 
 void Drawing::Terminate()
 {
-    // Clear the drawing stack
+    // Clear the drawing queue
     while(!toDraw.empty())
     {
 	toDraw.pop();
@@ -50,7 +50,7 @@ void Drawing::DrawLine(double x0, double y0, double x1, double y1)
 }
 
 void Drawing::DrawRectangle(double x, double y, double width, double height)
-{
+{   
     toDraw.push(
 	[=] () {
 	    SDL_Rect rect;
@@ -77,7 +77,7 @@ void Drawing::DrawText(std::string text, double x, double y, double size)
 */
 
 void Drawing::DrawImage(std::string filename, double x, double y)
-{
+{    
     toDraw.push(
 	[=] () {
 	    SDL_Rect rect;
@@ -98,7 +98,7 @@ void Drawing::DrawAll()
     SDL_SetRenderDrawColor(renderer.get(), 0x00, 0x00, 0x00, 0xFF);
     SDL_RenderClear(renderer.get());
 
-    // Go through the stack of drawing closures
+    // Go through the queue of drawing closures
     while(!toDraw.empty())
     {
 	// Run the drawing closure
