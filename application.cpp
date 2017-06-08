@@ -6,8 +6,6 @@
 
 bool Application::exit;
 SDL_Event Application::event;
-const Window Application::window;
-//const Media Application::media;
 
 int Application::Init(std::string title, int width, int height)
 {
@@ -27,19 +25,17 @@ int Application::Init(std::string title, int width, int height)
 	return -1;
     }
     
+    // Initialize media subsystem
+    if(Media::Init() < 0)
+    {
+	return -1;
+    }
+    
     // Initialize the drawing system
     if(Drawing::Init(Window::GetWindow()) < 0)
     {
 	return -1;
     }
-
-    /*
-    // Initialize media subsystem
-    if(Media::Init(Drawing::GetRenderer()) < 0)
-    {
-	return -1;
-    }
-    */
     
     return 0;
 }
@@ -47,9 +43,9 @@ int Application::Init(std::string title, int width, int height)
 void Application::Terminate()
 {
     // Terminate subsystems
-    Window::Terminate();
     Drawing::Terminate();
-    //Media::Terminate();
+    Media::Terminate();
+    Window::Terminate();
 }
 
 int Application::PollEvents()

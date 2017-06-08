@@ -19,7 +19,7 @@
 class Window
 {
 public:
-static int Init(std::string _title, int _width, int _height);
+static int Init(std::string title, int width, int height);
 static int Terminate();
 static std::shared_ptr<SDL_Window> GetWindow();
 

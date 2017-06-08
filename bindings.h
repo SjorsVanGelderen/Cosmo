@@ -43,7 +43,7 @@ extern "C"
   
     void __cdecl DrawImage(char* filename, double x, double y)
     {
-    
+	Drawing::DrawImage(std::string(filename), x, y);
     }
     
     int __cdecl Update()

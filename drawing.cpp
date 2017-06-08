@@ -5,7 +5,7 @@
 #include "drawing.h"
 
 std::shared_ptr<SDL_Renderer> Drawing::renderer;
-std::stack<std::function<void ()>> Drawing::toDraw;
+std::queue<std::function<void ()>> Drawing::toDraw;
 
 int Drawing::Init(std::shared_ptr<SDL_Window> window)
 {
@@ -74,12 +74,23 @@ void Drawing::DrawText(std::string text, double x, double y, double size)
 {
     // TODO
 }
+*/
 
 void Drawing::DrawImage(std::string filename, double x, double y)
 {
-    // TODO
+    toDraw.push(
+	[=] () {
+	    SDL_Rect rect;
+	    rect.x = x;
+	    rect.y = y;
+	    
+	    // Get the texture's dimensions
+	    std::shared_ptr<SDL_Texture> texture = Media::GetImage(filename);
+	    SDL_QueryTexture(texture.get(), NULL, NULL, &rect.w, &rect.h);
+	    
+	    SDL_RenderCopy(renderer.get(), texture.get(), nullptr, &rect);
+	});
 }
-*/
 
 void Drawing::DrawAll()
 {
@@ -91,7 +102,7 @@ void Drawing::DrawAll()
     while(!toDraw.empty())
     {
 	// Run the drawing closure
-	toDraw.top()();
+	toDraw.front()();
 	toDraw.pop();
     }
     

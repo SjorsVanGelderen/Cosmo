@@ -14,6 +14,7 @@
 #include <string>
 #include <SDL2/SDL.h>
 #include <SDL2_image/SDL_image.h>
+#include "drawing.h"
 
 #ifdef DEBUG
 #include "debug.h"
@@ -21,15 +22,15 @@
 
 class Media
 {
- public:
-static int Init();
-  static void Terminate();
-static std::shared_ptr<SDL_Texture> GetImage(std::string _filename);
+public:
+    static int Init();
+    static void Terminate();
+    static std::shared_ptr<SDL_Texture> GetImage(std::string filename);
 
- private:
-static std::shared_ptr<SDL_Texture> LoadImage(std::string _filename);
+private:
+    static std::shared_ptr<SDL_Texture> LoadImage(std::string filename);
   
-static std::map<std::string, std::shared_ptr<SDL_Texture>> textures;
+    static std::map<std::string, std::shared_ptr<SDL_Texture>> textures;
 };
 
 #endif

@@ -27,8 +27,6 @@ public:
 private:
     static bool exit;
     static SDL_Event event;
-    static const Window window;
-//static const Media media;
 };
 
 #endif

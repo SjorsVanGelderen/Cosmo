@@ -8,7 +8,6 @@ std::map<std::string, std::shared_ptr<SDL_Texture>> Media::textures;
 
 int Media::Init()
 {
-    /*
     if(!(IMG_Init(IMG_INIT_PNG) & IMG_INIT_PNG))
     {
 #ifdef DEBUG	
@@ -19,22 +18,25 @@ int Media::Init()
 
 	return -1;
     }
-    */
 
     return 0;
 }
 
-std::shared_ptr<SDL_Texture> Media::LoadImage(std::string _filename)
+std::shared_ptr<SDL_Texture> Media::LoadImage(std::string filename)
 {
-    /*
     // Load an image into a surface
-    std::shared_ptr<SDL_Surface> surface = std::make_shared(IMG_Load(_filename.c_str()));
+    std::shared_ptr<SDL_Surface> surface;
+    surface.reset(
+	IMG_Load(filename.c_str()),
+	SDL_FreeSurface
+	);
+    
     if(!surface)
     {
 #ifdef DEBUG
 	Debug::Log(ERROR,
 		   "Failed to load image "
-		   + _filename
+		   + filename
 		   + ". SDL error: "
 		   + std::string(SDL_GetError()));
 #endif
@@ -43,13 +45,18 @@ std::shared_ptr<SDL_Texture> Media::LoadImage(std::string _filename)
     }
 
     // Generate a texture from the surface
-    std::shared_ptr<SDL_Texture> texture = SDL_CreateTextureFromSurface(renderer, surface);
-    if(texture == nullptr)
+    std::shared_ptr<SDL_Texture> texture;
+    texture.reset(
+	SDL_CreateTextureFromSurface(Drawing::GetRenderer().get(), surface.get()),
+	SDL_DestroyTexture
+	);
+    
+    if(!texture)
     {
 #ifdef DEBUG
 	Debug::Log(ERROR,
 		   "Failed to create texture "
-		   + _filename
+		   + filename
 		   + ". SDL error: "
 		   + std::string(SDL_GetError()));
 #endif
@@ -58,45 +65,36 @@ std::shared_ptr<SDL_Texture> Media::LoadImage(std::string _filename)
     }
 
     // Free the surface
-    SDL_FreeSurface(surface);
+    //SDL_FreeSurface(surface.get());
 
     // Store the texture in the map
-    textures.insert(std::pair<std::string, SDL_Texture*>(_filename, texture));
-
+    textures.insert(std::pair<std::string, std::shared_ptr<SDL_Texture>>(filename, texture));
+    
     return texture;
-    */
-
-    return nullptr;
 }
 
-std::shared_ptr<SDL_Texture> Media::GetImage(std::string _filename)
+std::shared_ptr<SDL_Texture> Media::GetImage(std::string filename)
 {
-    /*
     // Return surface from map
     for(const auto &entry : textures)
     {
-	if(entry.first == _filename)
+	if(entry.first == filename)
 	{
 	    return entry.second;
 	}
     }
 
     // Load if it doesn't exist
-    return LoadImage(_filename);
-    */
-
-    return nullptr;
+    return LoadImage(filename);
 }
 
 void Media::Terminate()
 {
-    /*
     // Destroy all textures and clear the map
     for(const auto &entry : textures)
     {
-	SDL_DestroyTexture(entry.second);
+	SDL_DestroyTexture(entry.second.get());
     }
 
     textures.clear();
-    */
 }

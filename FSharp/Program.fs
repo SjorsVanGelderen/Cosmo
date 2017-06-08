@@ -10,23 +10,28 @@ open Microsoft.FSharp.Math
 open System.Runtime.InteropServices
 
 [<DllImport("Cosmo", CallingConvention = CallingConvention.Cdecl)>]
-extern int Init();
+extern int Init()
 
 [<DllImport("Cosmo", CallingConvention = CallingConvention.Cdecl)>]
-extern void Terminate();
+extern void Terminate()
 
 [<DllImport("Cosmo", CallingConvention = CallingConvention.Cdecl)>]
-extern void DrawLine(double x0, double y0, double x1, double y1);
+extern void DrawLine(double x0, double y0, double x1, double y1)
 
 [<DllImport("Cosmo", CallingConvention = CallingConvention.Cdecl)>]
-extern void DrawRectangle(double x, double y, double w, double h);
+extern void DrawRectangle(double x, double y, double w, double h)
 
 [<DllImport("Cosmo", CallingConvention = CallingConvention.Cdecl)>]
-extern int Update();
+extern void DrawImage(string filename, double x, double y)
+
+[<DllImport("Cosmo", CallingConvention = CallingConvention.Cdecl)>]
+extern int Update()
 
 // The main loop
 let rec loop theta =
     // Draw primitives
+    DrawImage ("image.png", 0.0, 0.0)
+    
     DrawLine (256.0,
               256.0,
               256.0 + (cos theta) * 128.0,

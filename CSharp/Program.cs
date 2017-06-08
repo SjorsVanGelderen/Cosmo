@@ -22,11 +22,16 @@ namespace CosmoBindings
 	private static extern void DrawRectangle(double x, double y, double w, double h);
 
 	[DllImport("Cosmo", CallingConvention = CallingConvention.Cdecl)]
+	private static extern void DrawImage(string filename, double w, double h);
+	
+	[DllImport("Cosmo", CallingConvention = CallingConvention.Cdecl)]
 	private static extern int Update();
 	
 	static void DrawPrimitives(double theta)
 	    {
 		// Draw primitives
+		DrawImage("image.png", 0.0, 0.0);
+		
 		DrawLine(256.0,
 			 256.0, 
 			 256.0 + Math.Cos(theta) * 128.0,

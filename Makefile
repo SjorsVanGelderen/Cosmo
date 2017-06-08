@@ -6,6 +6,7 @@ main.cpp \
 debug.cpp \
 application.cpp \
 window.cpp \
+media.cpp \
 drawing.cpp \
 bindings.cpp \
 #media.cpp \
