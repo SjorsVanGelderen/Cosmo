@@ -11,9 +11,9 @@
 
 extern "C"
 {
-    int __cdecl Init()
+    int __cdecl Init(char* caption, int width, int height)
     {
-	return Application::Init();
+	return Application::Init(std::string(caption), width, height);
     }
 
     void __cdecl Terminate()

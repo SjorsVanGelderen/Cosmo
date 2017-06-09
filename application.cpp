@@ -7,7 +7,7 @@
 bool Application::exit;
 SDL_Event Application::event;
 
-int Application::Init(std::string title, int width, int height)
+int Application::Init(std::string caption, int width, int height)
 {
     // Set up SDL
     if(SDL_Init(SDL_INIT_VIDEO) < 0)
@@ -20,7 +20,7 @@ int Application::Init(std::string title, int width, int height)
     }
     
     // Initialize the window
-    if(Window::Init(title, width, height) < 0)
+    if(Window::Init(caption, width, height) < 0)
     {
 	return -1;
     }

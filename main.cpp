@@ -9,7 +9,6 @@
 
 #ifdef DEBUG
 #include "debug.h"
-#endif
 
 // The entry point
 int main()
@@ -22,8 +21,8 @@ int main()
     
     // Terminate the application
     Application::Terminate();
-
-    Debug::Log(INFO, "TEST");
     
     return 0;
 }
+
+#endif

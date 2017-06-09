@@ -1,0 +1,7 @@
+/Users/sjors/Projects/Cosmo/FSharp/Mario/bin/Debug/netcoreapp1.1/Mario.deps.json
+/Users/sjors/Projects/Cosmo/FSharp/Mario/bin/Debug/netcoreapp1.1/Mario.runtimeconfig.json
+/Users/sjors/Projects/Cosmo/FSharp/Mario/bin/Debug/netcoreapp1.1/Mario.runtimeconfig.dev.json
+/Users/sjors/Projects/Cosmo/FSharp/Mario/bin/Debug/netcoreapp1.1/Mario.dll
+/Users/sjors/Projects/Cosmo/FSharp/Mario/bin/Debug/netcoreapp1.1/Mario.pdb
+/Users/sjors/Projects/Cosmo/FSharp/Mario/obj/Debug/netcoreapp1.1/Mario.dll
+/Users/sjors/Projects/Cosmo/FSharp/Mario/obj/Debug/netcoreapp1.1/Mario.pdb

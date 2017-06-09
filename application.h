@@ -20,10 +20,11 @@
 class Application
 {
 public:
-    static int Init(std::string title = "Cosmo", int width = 640, int height = 480);
+    static int Init(std::string caption = "Cosmo", int width = 640, int height = 480);
     static void Terminate();
-    static int PollEvents();
     static int Loop();
+    static int PollEvents();
+    
 private:
     static bool exit;
     static SDL_Event event;
